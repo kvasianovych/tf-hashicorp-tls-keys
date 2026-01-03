@@ -6,7 +6,7 @@ This Terraform module generates a private key for Transport Layer Security (TLS)
 
 ```hcl
 module "tls_private_key" {
-  source = "https://github.com/den-vasyliev/tf-hashicorp-tls-keys"
+  source = "https://github.com/kvasianovych/tf-hashicorp-tls-keys"
 
   algorithm   = var.algorithm
   ecdsa_curve = var.ecdsa_curve
@@ -19,6 +19,7 @@ output "private_key_pem" {
 output "public_key_openssh" {
   value = module.tls_private_key.public_key_openssh
 }
+
 ```
 ## Inputs
 - algorithm - (Optional) The algorithm to use for the private key. Default is ECDSA.
@@ -29,9 +30,9 @@ output "public_key_openssh" {
 - public_key_openssh - The generated public key in OpenSSH format.
 
 ## Requirements
-This module requires Terraform 0.12 or later, and the following provider:
+This module requires Terraform 1.13 or later, and the following provider:
 
-hashicorp/tls version 4.0.4
+hashicorp/tls version 4.1.0
 
 ## License
 This module is licensed under the MIT License. See the LICENSE file for details.
